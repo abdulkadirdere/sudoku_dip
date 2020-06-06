@@ -57,8 +57,8 @@ for i = 1:size(number_kernels,2)
 end
 
 % write results to CSV and XLS fiels to be consumed by a sudoku solver
-writematrix(result,'sudoku_puzzle.csv');
-writematrix(result,'sudoku_puzzle.xls');
+writematrix(result,'output/sudoku_puzzle.csv');
+writematrix(result,'output/sudoku_puzzle.xls');
 
 % display results in heatmap
 figure,
