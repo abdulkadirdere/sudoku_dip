@@ -2,7 +2,7 @@ clear all;
 clc;
 
 % read in the RGB sudoku puzzle image
-sudoku_image1 = imread("../data/sudoku1.png");
+sudoku_image1 = imread("../data/sudoku14.png");
 
 % get the puzzle image in 2D
 grayImage = rgb2gray(sudoku_image1);
