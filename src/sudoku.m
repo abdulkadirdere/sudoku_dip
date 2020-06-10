@@ -2,7 +2,7 @@ clear all;
 clc;
 
 % read in the RGB sudoku puzzle image
-sudoku_image = imread("../data/sudoku2.png");
+sudoku_image = imread("../data/sudoku1.png");
 
 % preprocess of input image to prepare for the image processing techniques
 % to be used
@@ -40,8 +40,7 @@ function [image, bounding_box, comp_image] = preImageProcessing(sudoku_image)
     labelled = bwlabel(sudoku_frame);
     [row, column]=find(labelled==1);
     cropped = sudoku_frame(min(row):max(row), min(column):max(column));
-    imshow(~cropped);
-      imwrite(~cropped, 'frame.png');
+%     imshow(~cropped);
 
     % get the location of each box in the sudoku image
     stats = regionprops(imcomplement(cropped),'BoundingBox');
@@ -100,17 +99,13 @@ function match = matching(sub)
     end
 end
 
-function kernels = obtainKernels()
-    % kernel for each number from 1 to 9
-    kernels = ["num1.mat","num2.mat","num3.mat","num4.mat","num5.mat","num6.mat","num7.mat","num8.mat","num9.mat"];
-end
-
 function result = OCR(image, bounding_box)
     % get number of boxes
     num_box = size(bounding_box,1);
     result = zeros(9,9);
     
-    kernels = obtainKernels();
+    % kernel for each number from 1 to 9
+    kernels = ["num1.mat","num2.mat","num3.mat","num4.mat","num5.mat","num6.mat","num7.mat","num8.mat","num9.mat"];
 
     for i = 1:size(kernels,2)
         kernel = load("kernel/"+kernels(i)).SE;
