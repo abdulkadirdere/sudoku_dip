@@ -15,9 +15,10 @@ plotImageBoundingBox(image, bounding_box);
 result = OCR(image, bounding_box);
 
 writeResults(result);
-% display results in heatmap
+% display results in heatmap and save the heatmap as an image
 figure,
 heatmap(result);
+saveas(gcf,'output/sudoku_puzzle.png')
 
 
 %% functions
