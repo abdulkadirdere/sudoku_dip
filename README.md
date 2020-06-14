@@ -8,3 +8,6 @@ To detect numbers within a given Sudoku Puzzle image using image processing tech
 - Click Run and results will start populating
 
 Optional: Change the input file name to any of the Sudoku puzzles that can be found in the `data` folder, to test the solution with different Sudoku puzzles.
+
+#### Results
+Results are saved as CSV and XLS files in the `output` folder. Heatmap image has been saved for comparison purposes with the original Sudoku puzzle image.
